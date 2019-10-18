@@ -26,7 +26,6 @@ class Management extends React.Component {
       alcohol: '',
     };
 
-
     componentWillMount() {
       var that = this;
       fetch('http://127.0.0.1:5000/user/id/2').then(res => {

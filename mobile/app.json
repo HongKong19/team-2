@@ -1,0 +1,29 @@
+{
+    "expo": {
+      "name": "Chi Sun College",
+      "slug": "hku-chi-sun-college",
+      "privacy": "public",
+      "sdkVersion": "34.0.0",
+      "platforms": ["ios", "android"],
+      "version": "1.0.0",
+      "orientation": "portrait",
+      "icon": "./assets/logo.png",
+      "description": "HIA",
+      "githubUrl": "https://github.com/hkuturingclub/ChiSunApp",
+      "ios": {
+        "bundleIdentifier": "com.hkuturingclub.chisuncollege",
+        "supportsTablet": true
+      },
+      "android": {
+        "package": "com.hkuturingclub.chisuncollege"
+      },
+      "splash": {
+        "image": "./assets/logo.png",
+        "resizeMode": "cover"
+      },
+      "updates": {
+        "fallbackToCacheTimeout": 0
+      },
+      "assetBundlePatterns": ["**/*"]
+    }
+  }

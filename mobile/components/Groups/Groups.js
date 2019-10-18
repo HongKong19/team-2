@@ -6,7 +6,7 @@ import Spacer from '../Spacer'
 
 class GroupListing extends React.Component {
   state = {
-    goals : [],
+    goals : undefined,
     weight: '',
     food: '',
     pain: '',
@@ -23,21 +23,20 @@ class GroupListing extends React.Component {
           />
           <Tabs>
             <Tab heading="Goal" key={1} style={{ padding: 10}}>
-              <List>
+
                 {this.state.goals && 
-                <div>
-                  <ListItem>
-                      <Text style={{ fontWeight: '300' }}>{goal[0]}</Text>
-                  </ListItem>
-                  <ListItem>
-                      <Text style={{ fontWeight: '300' }}>{goal[1]}</Text>
-                  </ListItem>
-                  <ListItem>
-                      <Text style={{ fontWeight: '300' }}>{goal[2]}</Text>
-                  </ListItem>
-                </div>
-              }
-              </List>
+                  <List>
+                    <ListItem>
+                      <Text style={{ fontWeight: '300' }}>{this.state.goals[0]}</Text>
+                    </ListItem>
+                    <ListItem>
+                      <Text style={{ fontWeight: '300' }}>{this.state.goals[1]}</Text>
+                    </ListItem>
+                    <ListItem>
+                      <Text style={{ fontWeight: '300' }}>{this.state.goals[2]}</Text>
+                    </ListItem>
+                  </List>
+                }
             </Tab>
             <Tab heading="Activity Record" key={2} align="center">
               <Form>
@@ -59,13 +58,10 @@ class GroupListing extends React.Component {
                 <Spacer size={20} />
                 <Item align="center">
                   <Button primary onPress={() => {
-                      this.setState({
-                        goals: ['Loose 1kg this week', 'Exercise for three hours this week', 'Eat more greens']
-                      })
-                  }}>
-                    <Text>
-                      Submit
-                    </Text></Button>
+                    this.setState({
+                      goals: ['Eat more greens', 'Exercise for three hours this week', 'Lose 1 kg this week']
+                    })    
+                  }}><Text>Submit</Text></Button>
                 </Item>
               </Form>
             </Tab>
