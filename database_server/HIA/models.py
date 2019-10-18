@@ -31,27 +31,58 @@ class User(Table):
     disease = db.Column(db.String(128))
     occupation = db.Column(db.String(32))
     ethnicity = db.Column(db.String(32))
-    blood_sugar = db.Column(db.String(32))
-    family_id = db.Column(db.Integer, db.ForeignKey('families.id'))
+    
+    
     __mapper_args__ = {'concrete': True}
     
     def __repr__(self):
         return '<User %r>' % self.userName
 
-class Family(Table):
-    __tablename__ = 'families'
+class Heart(Table):
+    __tablename__ = 'hearts'
+
+    id = db.Column(db.Integer, primary_key=True)
+    
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    age = db.Column(db.String(16))
+    sex = db.Column(db.String(16))
+    cp = db.Column(db.String(16))
+    trestbps = db.Column(db.String(16))
+    chol = db.Column(db.String(16))
+    fbs = db.Column(db.String(16))
+    restecg = db.Column(db.String(16))
+    thalach = db.Column(db.String(16))
+    exang = db.Column(db.String(16))
+    oldpeak = db.Column(db.String(16))
+    slope = db.Column(db.String(16))
+    ca = db.Column(db.String(16))
+    thal = db.Column(db.String(16))
+    is_heart = db.Column(db.String(16))
+
+    __mapper_args__ = {'concrete': True}
+    
+    # def __repr__(self):
+    #     return '<Heart %r>' % self.userName
+
+
+
+class Diabete(Table):
+    __tablename__ = 'diabetes'
 
 
     id = db.Column(db.Integer, primary_key=True)
     
-    income = db.Column(db.String(64))
-    food_choice = db.Column(db.String(32))
-    family_information = db.Column(db.String(128))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    glucose = db.Column(db.String(32))
+    blood_presure = db.Column(db.String(32))
+    DPF = db.Column(db.String(32))
+    age = db.Column(db.String(32))
+    is_diabete = db.Column(db.String(4))
 
     __mapper_args__ = {'concrete': True}
     
-    def __repr__(self):
-        return '<User %r>' % self.userName
+    # def __repr__(self):
+    #     return '<Diabete %r>' % self.userName
 
 
 class Admin(Table):
