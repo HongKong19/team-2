@@ -22,20 +22,29 @@ def get_user_byID(user_id: int):
 
 
 
-
 @main.route('/user', methods=['POST'])
 def create_user():
     if not request.json:
         abort(400)
 
-    newUser = User(userName = request.json['userName'], phone = request.json['phone'], gender = request.json['gender'], 
-    	height = request.json['height'], weight = request.json['weight'])
+    newUser = User(
+        userName = request.json['userName'], 
+        phone = request.json['phone'], 
+        gender = request.json['gender'], 
+    	height = request.json['height'], 
+        weight = request.json['weight'],
+        smoking = request.json['smoking'], 
+        alcohol = request.json['alcohol'], 
+        pulse = request.json['pulse'], 
+        occupation = request.json['occupation'], 
+        ethnicity = request.json['ethnicity'],
+        blood_sugar = request.json['blood_sugar']
+
+        )
 
     db.session.add(newUser)
     db.session.commit()
     return jsonify({'user': newUser.to_dict()}), 201
-
-
 
 
 
@@ -46,15 +55,35 @@ def update_user(user_id: int):
         abort(400)
 
     targetUser = User.query.get_or_404(user_id)
-    targetUser.userName = request.json['userName'] 
-    targetUser.phone = request.json['phone']
-    targetUser.gender = request.json['gender']
-    targetUser.height = request.json['height']
-    targetUser.weight = request.json['weight']
+
+    updateDict = dict(request.json)
+    if 'userName' in updateDict:
+        targetUser.userName = updateDict['userName']
+    if  'phone'in updateDict:
+        targetUser.phone = updateDict['phone']
+    if  'gender'in updateDict:
+        targetUser.gender = updateDict['gender']
+    if  'height'in updateDict:
+        targetUser.height = updateDict['height']
+    if  'weight'in updateDict:
+        targetUser.weight = updateDict['weight']
+    if  'smoking'in updateDict:
+        targetUser.smoking = updateDict['smoking']
+    if 'alcohol' in updateDict:
+        targetUser.alcohol = updateDict['alcohol']
+    if  'pulse'in updateDict:
+        targetUser.pulse = updateDict['pulse']
+    if  'disease'in updateDict:
+        targetUser.disease = updateDict['disease']
+    if  'occupation'in updateDict:
+        targetUser.occupation = updateDict['occupation']
+    if  'ethnicity'in updateDict:
+        targetUser.ethnicity = updateDict['ethnicity']
+    if  'blood_sugar'in updateDict:
+        targetUser.blood_sugar = updateDict['blood_sugar']
     
     db.session.add(targetUser)
     db.session.commit()
-    
     return jsonify({'user': targetUser.to_dict()}), 201
 
 

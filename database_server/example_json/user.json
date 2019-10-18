@@ -1,8 +1,17 @@
 {
 	"userName": "tengyun",
-	"phone": "124211",
-	"gender": "",
-	"weight": "",
-	"height":""
-
+	"phone": "1111211",
+	"age": "18",
+	"gender": "male",
+	"height":"185",
+	"weight":"78",
+	"smoking":"no",
+	"alcohol":"no",
+	"pulse":"70",
+	"disease": "N/A",
+	"occupation": "student",
+	"ethnicity": "Pacific Asian",
+	"blood_sugar": "120",
+	"family_id": 1
+	
 }
