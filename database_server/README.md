@@ -1,6 +1,5 @@
-# Database sever for Magic Butler
+# Database sever for HIA
 
-database sever for Sleep reminder chat bot, Magic Butler
 
 ## Quickstart
 
